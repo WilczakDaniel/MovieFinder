@@ -9,3 +9,37 @@ body{
   height: 98.4vh;
   background-position: center center;
 }
+
+.buttons {
+  display: flex;
+  padding-top: 20px;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+
+  .button {
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    color: #000000;
+    font-family: Arial;
+    font-size: 26px;
+    font-weight: 100;
+    padding: 18px;
+    background-color: #FFFFFF;
+    border: solid #FFFFFF 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+
+    &:hover {
+      background: #E4E4E5;
+      border: solid #7096C1 1px;
+      -webkit-border-radius: 100px;
+      -moz-border-radius: 100px;
+      border-radius: 100px;
+      text-decoration: none;
+    }
+  }
+}
