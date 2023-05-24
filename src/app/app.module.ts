@@ -9,6 +9,10 @@ import { SearchComponent } from './search/search.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTableModule} from "@angular/material/table";
+
 
 @NgModule({
   declarations: [
@@ -17,15 +21,19 @@ import {ReactiveFormsModule} from "@angular/forms";
     HomeComponent,
     SearchComponent,
     MovieListComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    
-  ],
-  providers: [],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatTableModule,
+
+
+    ],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
