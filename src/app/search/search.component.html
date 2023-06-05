@@ -1,1 +1,15 @@
-<p>search works!</p>
+<div class="form__group field" >
+  <div class="form__title">Title</div>
+  <input type="text" class="form__field" formControlName="title"/>
+  <div class="form__title">Type</div>
+  <div class="radio__buttons">
+    <input type="radio" value="movie" formControlName="type">Movie
+    <input type="radio" value="series" formControlName="type">Series
+  </div>
+  <div class="form__title">Year</div>
+  <input type="text" class="form__field" formControlName="year"/>
+</div>
+<div class="buttons">
+  <button class="button" >Search</button>
+  <button class="button" [routerLink]="['/']">Home</button>
+</div>

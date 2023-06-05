@@ -9,14 +9,15 @@
   <div class="form__title">Year</div>
   <input type="text" class="form__field" formControlName="year"/>
 </div>
+
 <div class="buttons">
   <button class="button" (click)="fetchMovies()">Search</button>
+  <button class="button" [routerLink]="['/']">Home</button>
 </div>
-
 
 <div style="display: flex; align-content: center; justify-content: center">
   <ng-container *ngIf="movies.length > 0">
-    <table style="width: 50%; ">
+    <table style="width: 40%; ">
       <tr>
         <th><h4>Title</h4></th>
         <th><h4>Year</h4></th>
@@ -27,40 +28,10 @@
           <td (click)="getOne(item.imdbID)">{{item.Title}}</td>
           <td (click)="getOne(item.imdbID)">{{item.Year}}</td>
           <td (click)="getOne(item.imdbID)">{{item.Type}}</td>
-          <img src="{{item.Poster}}" alt="" width="60" height="70" (click)="getOne(item.imdbID)">
-
+          <img src="{{item.Poster}}" alt="" width="50" height="50" (click)="getOne(item.imdbID)">
       </tr>
     </table>
-
   </ng-container>
 </div>
 
-<!--<table mat-table [dataSource]="movies">-->
-<!--  &lt;!&ndash; Position Column &ndash;&gt;-->
-<!--  <ng-container matColumnDef="position">-->
-<!--    <th mat-header-cell *matHeaderCellDef> No. </th>-->
-<!--    <td mat-cell *matCellDef="let element"> {{element.title}} </td>-->
-<!--  </ng-container>-->
-
-<!--  &lt;!&ndash; Name Column &ndash;&gt;-->
-<!--  <ng-container matColumnDef="name">-->
-<!--    <th mat-header-cell *matHeaderCellDef> Name </th>-->
-<!--    <td mat-cell *matCellDef="let element"> {{element.Year}} </td>-->
-<!--  </ng-container>-->
-
-<!--  &lt;!&ndash; Weight Column &ndash;&gt;-->
-<!--  <ng-container matColumnDef="weight">-->
-<!--    <th mat-header-cell *matHeaderCellDef> Weight </th>-->
-<!--    <td mat-cell *matCellDef="let element"> {{element.Type}} </td>-->
-<!--  </ng-container>-->
-
-<!--  &lt;!&ndash; Symbol Column &ndash;&gt;-->
-<!--  <ng-container matColumnDef="symbol">-->
-<!--    <th mat-header-cell *matHeaderCellDef> Symbol </th>-->
-<!--    <td mat-cell *matCellDef="let element"> {{element.Poster}} </td>-->
-<!--  </ng-container>-->
-
-<!--  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
-<!--  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
-<!--</table>-->
 

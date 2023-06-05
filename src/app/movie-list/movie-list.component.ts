@@ -13,10 +13,8 @@ import {Router} from "@angular/router";
 })
 export class MovieListComponent implements OnInit {
   movie!: FormGroup<MoviesForm>
-  options!: HttpParamsOptions
   movies!: any;
 
-  displayedColumns: string[] = ['Title', 'Year', 'Type', 'Poster'];
 
   constructor(private readonly movieService: MoviesService,private readonly router:Router) {
   }
