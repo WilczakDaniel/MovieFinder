@@ -27,6 +27,7 @@ export class MovieComponent {
     console.log(this.movie);
   }
 
+
   public fetchMovie() {
     this.movieService.getMovie({
       r: "json",

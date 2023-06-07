@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {FormArray, FormControl, FormGroup} from "@angular/forms";
-import {MoviesForm} from "./movies-form.model";
+import {FormControl, FormGroup} from "@angular/forms";
+import {MoviesFormSearch} from "./movies-form.model";
 import {MoviesService} from "../Services/movies.service";
-import {HttpParamsOptions} from "@angular/common/http";
 import {MoviesModel} from "./movies.model";
 import {Router} from "@angular/router";
 
@@ -12,21 +11,20 @@ import {Router} from "@angular/router";
   styleUrls: ['./movie-list.component.scss']
 })
 export class MovieListComponent implements OnInit {
-  movie!: FormGroup<MoviesForm>
-  movies!: any;
+
+  movie!: FormGroup<MoviesFormSearch>
+  movies!: MoviesModel[];
 
 
   constructor(private readonly movieService: MoviesService,private readonly router:Router) {
   }
 
   ngOnInit(): void {
-
-
-    this.movie = new FormGroup<MoviesForm>({
+    this.movie = new FormGroup<MoviesFormSearch>({
       title: new FormControl("", {nonNullable: true}),
       type: new FormControl(null, {nonNullable: false}),
       year: new FormControl(null, {nonNullable: false}),
-      page: new FormControl(1, {nonNullable: true}),
+      page: new FormControl(2, {nonNullable: true}),
     })
   }
 
@@ -35,16 +33,14 @@ export class MovieListComponent implements OnInit {
       s: this.movie.controls.title.value,
       type: this.movie.controls.type.value,
       r: "json",
-      page: 1
+      page: this.movie.controls.year.value,
     })
       .subscribe((res) => {
         this.movies = res;
-        this.movies = this.movies[0];
-        console.log(this.movies);
       })
   }
 
-  public getOne(imdbId:any){
+  public getOne(imdbId:string){
     this.router.navigate(['/movie/' +imdbId.toString()])
   }
 }

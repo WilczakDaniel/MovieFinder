@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {MoviesSearch} from "../../Models/movie-search.model";
 import {map} from "rxjs";
-import {MoviesForm} from "../movie-list/movies-form.model";
+import {MoviesFormSearch} from "../movie-list/movies-form.model";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {MoviesModel} from "../movie-list/movies.model";
 
 @Injectable({
   providedIn: 'root'
@@ -19,14 +20,15 @@ export class MoviesService {
   url: string = "https://movie-database-alternative.p.rapidapi.com"
 
   getMovies(moviesSearch: any) {
-    let movies :any[] = [];
+    let movies :MoviesModel[];
 
     return this.httpClient.get<{[key:string] : any}>(this.url,
-      {headers: this.headers,
+      {
+        headers: this.headers,
         params : moviesSearch
     })
-      .pipe(map((res :any) => {
-        movies.push(res.Search);
+      .pipe(map((res ) => {
+        movies = res["Search"];
         return movies;
       }))
   }
@@ -34,7 +36,8 @@ export class MoviesService {
     let movieSearch! :any;
 
     return this.httpClient.get<{[key:string] : any}>(this.url,
-      {headers: this.headers,
+      {
+        headers: this.headers,
         params : movie
     })
       .pipe(map((res :any) => {
