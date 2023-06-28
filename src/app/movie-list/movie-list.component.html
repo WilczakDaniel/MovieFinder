@@ -15,26 +15,35 @@
   <button class="button" [routerLink]="['/']">Home</button>
 </div>
 
-<div class="table-movies">
-  <ng-container *ngIf="movies.length > 0">
-    <table>
+<div class="table">
+  <p-table *ngIf="movies.length > 0"
+           [value]="movies"
+           [paginator]=true
+           [rows]="5"
+           [showCurrentPageReport]="true"
+           currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+           [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
       <tr>
-        <th><h4>Title</h4></th>
-        <th><h4>Year</h4></th>
-        <th><h4>Type</h4></th>
-        <th><h4>Poster</h4></th>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Type</th>
+        <th>Poster</th>
       </tr>
-      <tr *ngFor="let item of movies">
-            <td (click)="getOne(item.imdbID)">{{item.Title}}</td>
-            <td class="center-table" (click)="getOne(item.imdbID)">{{item.Year}}</td>
-            <td class="center-table" (click)="getOne(item.imdbID)">{{item.Type}}</td>
-            <img class="center-table" src="{{item.Poster}}" alt="" width="50" height="50" (click)="getOne(item.imdbID)">
+    </ng-template>
+    <ng-template pTemplate="body" let-movies>
+      <tr>
+        <td>{{ movies.Title }}</td>
+        <td>{{ movies.Year}}</td>
+        <td>{{ movies.Type }}</td>
+        <img class="center-table" src="{{movies?.Poster}}" alt="N/A" width="50" height="50" (click)="getOne(movies.imdbID)">
       </tr>
-    </table>
-  </ng-container>
-    <div *ngIf="movies.length == 0" >
-      <h1  class="no-result">No results</h1>
-    </div>
+    </ng-template>
+  </p-table>
+</div>
+
+<div class="no-result" *ngIf = "movies.length === 0">
+  <h1>No result</h1>
 </div>
 
 

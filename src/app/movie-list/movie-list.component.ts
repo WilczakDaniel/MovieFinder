@@ -5,6 +5,7 @@ import {MoviesService} from "../Services/movies.service";
 import {MoviesModel} from "./movies.model";
 import {Router} from "@angular/router";
 
+
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
@@ -16,7 +17,10 @@ export class MovieListComponent implements OnInit {
   movies!: MoviesModel[];
 
 
-  constructor(private readonly movieService: MoviesService,private readonly router:Router) {
+  constructor(
+    private readonly movieService: MoviesService,
+    private readonly router:Router
+  ) {
   }
 
   ngOnInit(): void {
@@ -30,19 +34,21 @@ export class MovieListComponent implements OnInit {
   }
 
   public fetchMovies() {
-    this.movieService.getMovies({
-      s: this.movie.controls.title.value,
-      type: this.movie.controls.type.value,
-      r: "json",
-      page: this.movie.controls.year.value,
-    })
-      .subscribe((res) => {
+    for (let i = 1; i < 5; i++) {
+      this.movieService.getMovies({
+        s: this.movie.controls.title.value,
+        type: this.movie.controls.type.value,
+        r: "json",
+        page : i
+      })
+        .subscribe((res) => {
           if(res == undefined){
             this.movies = []
             return;
           }
-          this.movies = res;
-      })
+          this.movies = this.movies.concat(res)
+        })
+    }
   }
 
   public getOne(imdbId:string){

@@ -1,8 +1,6 @@
 import {Injectable} from '@angular/core';
-import {MoviesSearch} from "../../Models/movie-search.model";
 import {map} from "rxjs";
-import {MoviesFormSearch} from "../movie-list/movies-form.model";
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {MoviesModel} from "../movie-list/movies.model";
 
 @Injectable({
@@ -28,8 +26,8 @@ export class MoviesService {
         params : moviesSearch
     })
       .pipe(map((res ) => {
-        movies = res["Search"];
-        return movies;
+        console.log(res['Search'])
+        return res['Search'];
       }))
   }
   getMovie(movie: any) {

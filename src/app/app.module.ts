@@ -9,9 +9,10 @@ import { SearchComponent } from './search/search.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import {ReactiveFormsModule} from "@angular/forms";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from "@angular/material/table";
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import {MatTableModule} from "@angular/material/table";
         HttpClientModule,
         BrowserAnimationsModule,
         MatTableModule,
+        TableModule
 
 
     ],

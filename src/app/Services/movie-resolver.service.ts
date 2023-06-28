@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
 import {Movie} from "../../Models/movie.model";
 import {MoviesService} from "./movies.service";
 import {map, Observable} from "rxjs";
