@@ -1,27 +1,22 @@
 # MovieFinder
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
+Strona umożliwiająca wyszukiwanie filmów z bazy danych IMDB za pośrednictwem API oraz ich przegląd.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Aplikacja została stworzona w ramach projektu na przedmiot "Programowanie aplikacji webowych" na WSEI.
 
-## Code scaffolding
+## Uruchomienie aplikacji
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Aby uruchomić aplikacje należy posiadać zainstalowane:
+- NPM 9.3.1
+- Node 19.5.0
+- Angular 16.0.2
 
-## Build
+Następnie w głównym folderze aplikacji należy wykonać komendę `npm install` aby zainstalować wszystkie potrzebne paczki.
+Do uruchomienia aplikacji należy wykonać komendę `ng serve` i przejść do adresu `http://localhost:4200/`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Testy jednostkowe
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Aby uruchomić testy jednostkowe należy wykonać komendę `ng test`.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
