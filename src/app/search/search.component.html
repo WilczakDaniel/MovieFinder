@@ -1,4 +1,4 @@
-<div class="form__group field" >
+<div class="form__group field" [formGroup]="movie">
   <div class="form__title">Title</div>
   <input type="text" class="form__field" formControlName="title"/>
   <div class="form__title">Type</div>
@@ -10,6 +10,6 @@
   <input type="text" class="form__field" formControlName="year"/>
 </div>
 <div class="buttons">
-  <button class="button" >Search</button>
+  <button class="button"(click)="fetchMovie()" >Search</button>
   <button class="button" [routerLink]="['/']">Home</button>
 </div>

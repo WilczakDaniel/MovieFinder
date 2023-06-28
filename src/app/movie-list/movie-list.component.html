@@ -15,9 +15,9 @@
   <button class="button" [routerLink]="['/']">Home</button>
 </div>
 
-<div style="display: flex; align-content: center; justify-content: center">
+<div class="table-movies">
   <ng-container *ngIf="movies.length > 0">
-    <table style="width: 40%; ">
+    <table>
       <tr>
         <th><h4>Title</h4></th>
         <th><h4>Year</h4></th>
@@ -25,13 +25,16 @@
         <th><h4>Poster</h4></th>
       </tr>
       <tr *ngFor="let item of movies">
-          <td (click)="getOne(item.imdbID)">{{item.Title}}</td>
-          <td (click)="getOne(item.imdbID)">{{item.Year}}</td>
-          <td (click)="getOne(item.imdbID)">{{item.Type}}</td>
-          <img src="{{item.Poster}}" alt="" width="50" height="50" (click)="getOne(item.imdbID)">
+            <td (click)="getOne(item.imdbID)">{{item.Title}}</td>
+            <td class="center-table" (click)="getOne(item.imdbID)">{{item.Year}}</td>
+            <td class="center-table" (click)="getOne(item.imdbID)">{{item.Type}}</td>
+            <img class="center-table" src="{{item.Poster}}" alt="" width="50" height="50" (click)="getOne(item.imdbID)">
       </tr>
     </table>
   </ng-container>
+    <div *ngIf="movies.length == 0" >
+      <h1  class="no-result">No results</h1>
+    </div>
 </div>
 
 

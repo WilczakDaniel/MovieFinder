@@ -1,1 +1,19 @@
-<p>movie works!</p>
+<div class="movie-component">
+  <h1>{{movie.Title}}</h1>
+  <img class="image" src="{{movie.Poster}}" alt="" width="300" height="400">
+  <div class="info">
+    <p>Year: {{movie.Year}}</p>
+    <p>Genre: {{movie.Genre}}</p>
+    <p>Director: {{movie.Director}}</p>
+    <p>Actors: {{movie.Actors}}</p>
+    <p>Plot: {{movie.Plot}}</p>
+    <p>Language: {{movie.Language}}</p>
+    <p>Country: {{movie.Country}}</p>
+    <p>imdbID: {{movie.imdbID}}</p>
+    <p>Type: {{movie.Type}}</p>
+  </div>
+  <div class="buttons">
+    <a class="button" [routerLink]="['/']">Back to home</a>
+    <a class="button" [routerLink]="['/searchMany']">Back to search</a>
+  </div>
+</div>

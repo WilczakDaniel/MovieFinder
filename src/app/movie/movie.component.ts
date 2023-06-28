@@ -1,42 +1,26 @@
-import { Component } from '@angular/core';
-import {MoviesService} from "../Services/movies.service";
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {MovieModel} from "../search/movie-form.model";
+import {AppComponent} from "../app.component";
 
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
   styleUrls: ['./movie.component.scss']
 })
-export class MovieComponent {
+export class MovieComponent implements OnInit {
 
   protected id!: string
-  movie! : any;
+  movie! : MovieModel;
 
-  constructor(private readonly route: ActivatedRoute, private readonly movieService: MoviesService,private readonly router:Router) {
-  }
+  constructor(
+    private readonly route: ActivatedRoute,
+    private readonly router : Router
+  ) {  }
 
 
   ngOnInit(): void {
-    // console.log(this.route.snapshot.params)
-    // this.id = this.route.snapshot.params['id']
-    this.route.params.subscribe(data => {
-      this.id = data['id']
-    })
-
-    this.fetchMovie();
+    this.movie = this.route.snapshot.data['movie'];
     console.log(this.movie);
-  }
-
-
-  public fetchMovie() {
-    this.movieService.getMovie({
-      r: "json",
-      i: this.id
-    })
-      .subscribe((res) => {
-        console.log(res[0]);
-        this.movie = res;
-        console.log(this.movie)
-      })
   }
 }

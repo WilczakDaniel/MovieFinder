@@ -1,10 +1,9 @@
 import {FormArray, FormControl, FormGroup} from "@angular/forms";
 
-export type MoviesFormSearch = {
+export type MovieFormSearch = {
   title :FormControl<string>,
   type :FormControl<string | null>,
-  page : FormControl<number>,
-  year : FormControl<number | null>,
+  year : FormControl<number | null>
 }
 
 

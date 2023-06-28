@@ -20,11 +20,12 @@ export class MovieListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.movies =[];
     this.movie = new FormGroup<MoviesFormSearch>({
       title: new FormControl("", {nonNullable: true}),
       type: new FormControl(null, {nonNullable: false}),
       year: new FormControl(null, {nonNullable: false}),
-      page: new FormControl(2, {nonNullable: true}),
+      page: new FormControl(1, {nonNullable: true}),
     })
   }
 
@@ -36,12 +37,16 @@ export class MovieListComponent implements OnInit {
       page: this.movie.controls.year.value,
     })
       .subscribe((res) => {
-        this.movies = res;
+          if(res == undefined){
+            this.movies = []
+            return;
+          }
+          this.movies = res;
       })
   }
 
   public getOne(imdbId:string){
-    this.router.navigate(['/movie/' +imdbId.toString()])
+    this.router.navigate(['/movie/' +imdbId])
   }
 }
 
